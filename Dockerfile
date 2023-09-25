@@ -10,6 +10,11 @@ COPY ./application /var/www/html
 # Enable Apache Rewrite module for clean URLs (if needed)
 RUN a2enmod rewrite
 
+# Set proper file permissions
+RUN chmod -R 755 /var/www/html/application
+RUN chmod -R 755 /var/www/html/system
+RUN chmod 755 /var/www/html/index.php
+
 # Expose port 80 for HTTP
 EXPOSE 80
 
