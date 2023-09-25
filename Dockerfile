@@ -26,7 +26,7 @@ EXPOSE 80
 WORKDIR /var/www/html
 
 # Copy your PHP application code into the container
-COPY ./var/lib/jenkins/workspace/hospial-app /var/www/html
+COPY ./application /var/www/html
 
 # Start Apache when the container starts
 CMD ["apachectl", "-D", "FOREGROUND"]
