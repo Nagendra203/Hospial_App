@@ -7,6 +7,9 @@ WORKDIR /var/www/html
 # Copy the contents of your CodeIgniter application into the container
 COPY ./application /var/www/html/application
 
+# Copy the index.php file into the container
+COPY ./index.php /var/www/html/index.php
+
 # Enable Apache Rewrite module for clean URLs (if needed)
 RUN a2enmod rewrite
 
