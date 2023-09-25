@@ -11,6 +11,7 @@ services:
       - db
     volumes:
       - ./application:/var/www/html
+    entrypoint: /bin/bash -c "/set_permissions.sh && apache2-foreground"
 
   db:
     image: mysql:5.7
