@@ -10,10 +10,16 @@ COPY ./application /var/www/html/application
 # Copy the index.php file into the container
 COPY ./index.php /var/www/html/index.php
 
+# Copy the set_permissions.sh script into the container
+COPY ./set_permissions.sh /set_permissions.sh
+
 # Enable Apache Rewrite module for clean URLs (if needed)
 RUN a2enmod rewrite
 
-# Set proper file permissions
+# Set proper file permissions for the script
+RUN chmod +x /set_permissions.sh
+
+# Set proper file permissions for the application
 RUN chmod -R 755 /var/www/html/application
 RUN chmod 755 /var/www/html/index.php
 
@@ -21,4 +27,4 @@ RUN chmod 755 /var/www/html/index.php
 EXPOSE 80
 
 # Start Apache when the container starts
-CMD ["apache2-foreground"]
+CMD ["/set_permissions.sh"]
