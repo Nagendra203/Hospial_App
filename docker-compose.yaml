@@ -1,18 +1,22 @@
 version: '3'
 services:
-  php:
+  web:
     build:
       context: .
       dockerfile: Dockerfile
     ports:
       - "80:80"
     volumes:
-      - ./src:/var/www/html  # Mount your PHP application source code here
+      - ./application:/var/www/html
+    depends_on:
+      - db
 
-  mysql:
+  db:
     image: mysql:5.7
     environment:
       MYSQL_ROOT_PASSWORD: Hospiol@123
-      MYSQL_DATABASE: hospioldb
-    ports:
-      - "3306:3306"
+      MYSQL_DATABASE: hospiol
+      MYSQL_USER: hospiol
+      MYSQL_PASSWORD: Hospiol@123
+    volumes:
+      - ./db_data:/var/lib/mysql
