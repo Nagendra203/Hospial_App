@@ -7,6 +7,9 @@ WORKDIR /var/www/html
 # Copy the application code to the container
 COPY application/ /var/www/html/
 
+# Enable Apache modules
+RUN a2enmod rewrite
+
 # Install any PHP extensions your application requires
 # For example, if you use MySQL
 RUN docker-php-ext-install mysqli pdo pdo_mysql
