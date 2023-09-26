@@ -1,21 +1,18 @@
-# Use an official PHP runtime as a parent image
-FROM php:7.4-apache
+# Use an official Ubuntu as a parent image
+FROM ubuntu:20.04
 
-# Set the working directory to /var/www/html
-WORKDIR /var/www/html
+# Set environment variables to prevent interactive prompts during package installations
+ENV DEBIAN_FRONTEND=noninteractive
 
-# Copy the application code to the container
-COPY application/ /var/www/html/
+# Update the package repository and install necessary packages
+RUN apt-get update -y && \
+    apt-get install -y apache2 php libapache2-mod-php php-mysql
 
-# Enable Apache modules
-RUN a2enmod rewrite
+# Copy your PHP application files into the container
+COPY ./application /var/www/html/
 
-# Install any PHP extensions your application requires
-# For example, if you use MySQL
-RUN docker-php-ext-install mysqli pdo pdo_mysql
-
-# Expose port 80
+# Expose port 80 for Apache
 EXPOSE 80
 
-# Start the Apache web server
-CMD ["apache2-foreground"]
+# Start Apache web server
+CMD ["apachectl", "-D", "FOREGROUND"]
