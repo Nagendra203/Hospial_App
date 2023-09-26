@@ -74,10 +74,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => '127.0.0.1',
-	'username' => 'tanya_user',
-	'password' => 'Rams#12345',
-	'database' => 'iplex_smart_v1',
+	'hostname' => 'localhost',
+	'username' => 'hospiol',
+	'password' => 'hospiol',
+	'database' => 'hospioldb',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
