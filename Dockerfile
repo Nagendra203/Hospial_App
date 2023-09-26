@@ -4,8 +4,8 @@ FROM php:7.4-apache
 # Set the working directory to /var/www/html
 WORKDIR /var/www/html
 
-# Copy the current directory contents into the container at /var/www/html
-COPY . .
+# Copy the application code to the container
+COPY application/ /var/www/html/
 
 # Install any PHP extensions your application requires
 # For example, if you use MySQL
