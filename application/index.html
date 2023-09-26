@@ -1,11 +1,139 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>403 Forbidden</title>
-    </head>
-    <body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Registration</title>
+    <style>
+        /* Your existing styles here */
 
-        <p>Directory access is forbidden.</p>
+        .menu {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: #333;
+        }
 
-    </body>
+        .menu a {
+            text-decoration: none;
+            color: #fff;
+            margin: 0 10px;
+        }
+
+        /* Gradient Background */
+        body {
+            background: linear-gradient(45deg, #FF5733, #FFBE33);
+            background-size: 100% 100%;
+            background-attachment: fixed;
+            margin: 0; /* Remove default margin */
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.8); /* Add a semi-transparent white background to your containers for better readability */
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Hide the registration form by default */
+        #registration-form {
+            display: none;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Advertisement Styles */
+        .advertisement {
+            background-color: #f5f5f5;
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .advertisement-left {
+            float: left;
+            width: 30%; /* Adjust the width as needed */
+        }
+
+        .advertisement-right {
+            float: right;
+            width: 30%; /* Adjust the width as needed */
+        }
+
+        /* Apple Mobile Image Styles */
+        .apple-mobile-image {
+            float: right;
+            margin-right: 20px; /* Adjust the margin as needed */
+            max-width: 100%; /* Ensure the image doesn't exceed its container's width */
+            height: auto; /* Maintain aspect ratio */
+        }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="login.html">Login</a>
+        <a href="#" id="registration-button">Register</a>
+    </div>
+    <div class="container" id="login-form">
+        <div class="advertisement advertisement-left">
+            <!-- Left Advertisement Content -->
+            Advertisement 1
+        </div>
+        <h2>Login</h2>
+        <form action="login.php" method="post">
+            <input type="text" name="username" placeholder="Username" required><br>
+            <input type="password" name="password" placeholder="Password" required><br>
+            <input type="submit" value="Login">
+        </form>
+    </div>
+    <div class="container" id="registration-form">
+        <div class="advertisement advertisement-right">
+            <!-- Right Advertisement Content -->
+            Advertisement 2
+        </div>
+        <h2>Registration</h2>
+        <form action="register.php" method="post">
+            <input type="text" name="firstname" placeholder="First Name" required><br>
+            <input type="text" name="lastname" placeholder="Last Name" required><br>
+            <input type="text" name="email" placeholder="Email" required><br>
+            <input type="text" name="username" placeholder="Username" required><br>
+            <input type="password" name="password" placeholder="Password" required><br>
+            <input type="submit" value="Register">
+        </form>
+    </div>
+
+    <!-- Apple Mobile Image -->
+    <img src="apple-mobile-image.jpg" alt="Apple Mobile" class="apple-mobile-image">
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2023 Nagendra Babu
+    </footer>
+
+    <script>
+        // JavaScript to toggle the registration form visibility
+        const registrationButton = document.getElementById("registration-button");
+        const registrationForm = document.getElementById("registration-form");
+        const loginForm = document.getElementById("login-form");
+
+        registrationButton.addEventListener("click", function(event) {
+            event.preventDefault();
+            registrationForm.style.display = "block"; // Show the registration form
+            loginForm.style.display = "none"; // Hide the login form
+        });
+    </script>
+</body>
 </html>
